@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About — David">
+	<div class="space-y-16 py-4">
+		
+		<!-- HEADER & BIO SHORT SECTION -->
+		<header class="max-w-2xl">
+			<h1 class="text-3xl font-bold tracking-tight mb-4 text-zinc-900 dark:text-zinc-50">Tentang Saya</h1>
+			<div class="text-zinc-600 dark:text-zinc-400 text-sm md:text-base leading-relaxed space-y-4">
+				<p>
+					Halo! Saya <strong>Ahmad David Khasbiya</strong>. Saya adalah seorang mahasiswa Ilmu Komputer Universitas Brawijaya dan seorang <strong>Software Development Enthusiast</strong>.
+				</p>
+				<p>
+					Bagi saya, menulis kode bukan sekadar membuat aplikasi itu berjalan, melainkan bagaimana membangun arsitektur yang bersih, efisien, dan bebas dari <em>bloatware</em>. Di luar jam kuliah, saya sangat aktif mengeksperimen kustomisasi sistem operasi, mengulik kernel Linux, serta mendalami dasar-dasar rekayasa perangkat lunak modern.
+				</p>
+			</div>
+		</header>
+
+		<!-- SECTION 2: PENGALAMAN & ORGANISASI -->
+		<section class="max-w-2xl">
+			<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase mb-6">
+				Pengalaman & Organisasi
+			</h2>
+			
+			<div class="space-y-8">
+				<!-- Item 1: INTRIVIA 2026 -->
+				<div class="flex flex-col md:flex-row md:gap-6 justify-between items-start group">
+					<span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 md:w-32 shrink-0 pt-0.5">
+						2026
+					</span>
+					<div class="flex-1">
+						<h3 class="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							Staff Perlengkapan
+						</h3>
+						<p class="text-xs text-zinc-400 dark:text-zinc-500 mb-2">Intrivia 2026 · FILKOM UB</p>
+						<p class="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed">
+							Berkontribusi dalam kegiatan pengenalan akademik di lingkungan Departemen Teknik Informatika FILKOM UB (Ospek). Bertanggung jawab penuh dalam manajemen logistik, mempersiapkan kebutuhan teknis lapangan, serta memastikan seluruh operasional fasilitas pendukung berjalan lancar demi kenyamanan mahasiswa baru.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECTION 3: TECH STACK -->
+		<section class="max-w-2xl">
+			<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase mb-6">
+				Alat Tempur & Teknologi
+			</h2>
+			
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs leading-relaxed">
+				<div>
+                    <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Bahasa & Framework</h3>
+                    <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400 font-mono">
+                        <li>Java (OOP Core)</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>React / Astro</li>
+                        <li>SQL & DBMS</li> <!-- Gabungkan kueri dan sistemnya -->
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Tools & Backend</h3>
+                    <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400 font-mono">
+                        <li>Git & GitHub</li>
+                        <li>Docker Container</li>
+                        <li>Node.js & Supabase</li> <!-- Satukan lingkungan backend -->
+                        <li>Firebase & Vercel</li>   <!-- Satukan platform deployment -->
+                        <li>Gemini & Claude AI</li>  <!-- Ringkas rumpun AI-nya -->
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-zinc-900 dark:text-zinc-100 mb-2">Sistem Operasi</h3>
+                    <ul class="space-y-1.5 text-zinc-600 dark:text-zinc-400 font-mono">
+                        <li>Windows 11 (Main OS)</li>
+		                <li>Linux Mint (Lab / Server)</li>
+                    </ul>
+                </div>
+			</div>
+		</section>
+
+		<!-- SECTION 4: HARDWARE RIG / SETUP -->
+		<section class="max-w-2xl">
+			<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase mb-6">
+				Spesifikasi Perangkat
+			</h2>
+			<p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">
+				Lingkungan kerja fisik yang saya gunakan untuk mendukung aktivitas kompilasi kode dan kebutuhan riset perkuliahan sehari-hari:
+			</p>
+			
+			<div class="overflow-x-auto w-full">
+				<table class="w-full text-left border-collapse text-xs">
+					<thead>
+						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 uppercase font-semibold">
+							<th class="py-2 pr-4 w-1/3">Perangkat</th>
+							<th class="py-2 px-4">Spesifikasi Utama</th>
+							<th class="py-2 pl-4 text-right">Peran</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-zinc-100 dark:divide-zinc-900 text-zinc-600 dark:text-zinc-400 font-mono">
+						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors">
+							<td class="py-3 pr-4 font-sans font-medium text-zinc-900 dark:text-zinc-100">Asus Vivobook 14 Pro OLED</td>
+							<td class="py-3 px-4 text-zinc-500">Ryzen 7 5800H · 8GB RAM · 512GB SSD · RTX 3050</td>
+							<td class="py-3 pl-4 text-right font-sans text-zinc-500">Daily Driver</td>
+						</tr>
+						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors">
+							<td class="py-3 pr-4 font-sans font-medium text-zinc-900 dark:text-zinc-100">Toshiba Laptop (Legacy)</td>
+							<td class="py-3 px-4 text-zinc-500">Intel i3 4th Gen · 8GB RAM · Linux Mint OS</td>
+							<td class="py-3 pl-4 text-right font-sans text-zinc-500">Linux Lab</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+	</div>
+</Layout>

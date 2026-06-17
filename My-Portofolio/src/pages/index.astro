@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+// 1. Import getCollection untuk mengambil data konten
+import { getCollection } from 'astro:content';
+
+// 2. Ambil seluruh artikel blog
+const posts = await getCollection('blog');
+
+// 3. Urutkan berdasarkan tanggal rilis TERBARU, lalu ambil 2 artikel teratas saja
+const latestPosts = posts
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 2);
+---
+
+<Layout title="David — Software Builder">
+	<div class="space-y-20 py-8">
+		
+		<!-- HERO SECTION -->
+		<section class="max-w-2xl">
+			<h1 class="text-3xl font-bold tracking-tight mb-4 text-zinc-900 dark:text-zinc-50">
+				Halo, saya <span class="text-indigo-600 dark:text-indigo-400">David</span>.
+			</h1>
+			<p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 text-sm md:text-base">
+				Saya adalah seorang mahasiswa Ilmu Komputer Universitas Brawijaya dan seorang <strong>Software Development Enthusiast</strong>. Saya gemar memecahkan masalah lewat kode, membangun sistem yang bersih dan bebas dari <em>bloatware</em>, serta aktif mengulik kustomisasi sistem di waktu luang.
+			</p>
+			
+			<div class="inline-flex items-center gap-2 text-xs font-medium text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900/50 px-3 py-1.5 rounded-full border border-zinc-200/50 dark:border-zinc-800/50">
+				<span class="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 animate-pulse"></span>
+				Sedang aktif bereksperimen dengan Astro & AI
+			</div>
+		</section>
+
+		<!-- FEATURED PROJECTS SECTION (Maksimal 2) -->
+		<section>
+			<div class="flex justify-between items-baseline mb-6">
+				<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Projek Pilihan</h2>
+				<a href="/projects" class="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1">
+					Lihat semua arsip <span class="text-[10px]">→</span>
+				</a>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<!-- Project 1: KongsiStok -->
+				<a href="https://github.com/davidkhasbiya/KongsiStok" target="_blank" rel="noopener noreferrer" class="group block border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 hover:border-indigo-500/50 dark:hover:border-indigo-400/30 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-all duration-300">
+					<div class="flex justify-between items-start mb-2">
+						<h3 class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							KongsiStok
+						</h3>
+						<span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded">2026</span>
+					</div>
+					<p class="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed mb-4">
+						Platform manajemen stok cerdas menggunakan arsitektur serverless, database relasional, dan AI parser terintegrasi untuk otomasi input warung lokal secara real-time.
+					</p>
+					<div class="flex flex-wrap gap-2 text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
+						<span>React</span> · <span>Supabase</span> · <span>Gemini AI</span> · <span>Serverless</span>
+					</div>
+				</a>
+
+				<!-- Project 2: Personal Portfolio -->
+				<a href="/projects" class="group block border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 hover:border-indigo-500/50 dark:hover:border-indigo-400/30 hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-all duration-300">
+					<div class="flex justify-between items-start mb-2">
+						<h3 class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							Personal Portfolio Web
+						</h3>
+						<span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded">2026</span>
+					</div>
+					<p class="text-zinc-600 dark:text-zinc-400 text-xs leading-relaxed mb-4">
+						Desain portofolio minimalis yang cepat, dioptimalkan untuk performa tinggi, kedap bising visual, dan mendukung transisi tema otomatis yang mulus.
+					</p>
+					<div class="flex flex-wrap gap-2 text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
+						<span>Astro</span> · <span>Tailwind CSS</span> · <span>TypeScript</span>
+					</div>
+				</a>
+			</div>
+		</section>
+
+		<!-- SECTION: CATATAN TERBARU -->
+		<section class="mt-16">
+			<div class="flex justify-between items-center mb-6">
+				<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
+					Catatan Terbaru
+				</h2>
+				<a href="/blog" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5 font-medium">
+					Buka blog →
+				</a>
+			</div>
+			
+			<!-- PROSES RENDERING OTOMATIS -->
+			<div class="divide-y divide-zinc-100 dark:divide-zinc-900 border-t border-b border-zinc-100 dark:border-zinc-900">
+				{latestPosts.map((post) => (
+					<a href={`/blog/${post.id}`} class="flex flex-col sm:flex-row sm:items-center justify-between py-4 group hover:px-2 transition-all duration-200">
+						<span class="text-sm font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							{post.data.title}
+						</span>
+						<span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 shrink-0 mt-1 sm:mt-0">
+							{post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })}
+						</span>
+					</a>
+				))}
+			</div>
+		</section>
+	</div>
+</Layout>

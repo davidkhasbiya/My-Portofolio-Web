@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+// 1. Import fungsi 'render' dari astro:content
+import { getCollection, render } from 'astro:content'; 
+
+export async function getStaticPaths() {
+	const blogEntries = await getCollection('blog');
+	return blogEntries.map(entry => ({
+		params: { slug: entry.id }, // 2. Ubah entry.slug menjadi entry.id
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+// 3. Ubah dari await entry.render() menjadi fungsi render(entry) global di bawah ini
+const { Content } = await render(entry); 
+---
+
+<Layout title={`${entry.data.title} — David`}>
+	<article class="max-w-2xl mx-auto py-4">
+		
+		<header class="mb-10 border-b border-zinc-200 dark:border-zinc-900 pb-6">
+			<div class="text-xs font-mono text-zinc-400 dark:text-zinc-500 mb-3">
+				{entry.data.pubDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+			</div>
+			<h1 class="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4 leading-tight">
+				{entry.data.title}
+			</h1>
+			{entry.data.description && (
+				<p class="text-zinc-500 dark:text-zinc-400 text-sm italic leading-relaxed">
+					"{entry.data.description}"
+				</p>
+			)}
+		</header>
+
+		<div class="text-zinc-700 dark:text-zinc-300 text-sm md:text-base leading-relaxed space-y-5 selection:bg-indigo-500/20
+			prose-headings:text-zinc-900 dark:prose-headings:text-zinc-50 prose-headings:font-semibold prose-headings:mt-8 prose-headings:mb-3
+			prose-p:mb-4
+			prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:underline
+			prose-code:text-xs prose-code:font-mono prose-code:bg-zinc-100 dark:prose-code:bg-zinc-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+			prose-ul:list-disc prose-ul:pl-5 prose-ol:list-decimal prose-ol:pl-5">
+			<Content />
+		</div>
+
+		<div class="mt-16 pt-6 border-t border-zinc-200 dark:border-zinc-900">
+			<a href="/blog" class="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1.5 group">
+				<span class="transition-transform group-hover:-translate-x-0.5">←</span> Kembali ke Blog
+			</a>
+		</div>
+
+	</article>
+</Layout>
