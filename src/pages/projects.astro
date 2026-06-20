@@ -14,171 +14,160 @@ import Layout from '../layouts/Layout.astro';
 		</header>
 
 		<!-- SECTION 1: SEMUA PROJEK -->
-		<section>
-			<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase mb-4">Semua Projek</h2>
+		<section class="table-section">
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+				<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Semua Projek</h2>
+				<input 
+					type="text" 
+					placeholder="Cari projek atau tech stack..." 
+					class="search-input text-xs px-3 py-1.5 w-full sm:w-64 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-transparent text-zinc-800 dark:text-zinc-200 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+				/>
+			</div>
 			<div class="overflow-x-auto w-full">
 				<table class="w-full text-left border-collapse text-sm">
 					<thead>
-						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs uppercase font-semibold">
-							<th class="py-3 pr-4 w-16">Tahun</th>
-							<th class="py-3 px-4 w-1/3">Projek</th>
+						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs uppercase font-semibold select-none">
+							<th class="sort-header py-3 pr-4 w-16 cursor-pointer hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" data-sort="number">
+								Tahun <span class="sort-icon inline-block ml-0.5 text-[10px]">▼</span>
+							</th>
+							<th class="sort-header py-3 px-4 w-1/3 cursor-pointer hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" data-sort="string">
+								Projek <span class="sort-icon inline-block ml-0.5 text-[10px]"></span>
+							</th>
 							<th class="py-3 px-4 hidden sm:table-cell">Tech Stack</th>
 							<th class="py-3 pl-4 text-right w-24">Link</th>
 						</tr>
 					</thead>
 					<tbody class="divide-y divide-zinc-100 dark:divide-zinc-900 text-zinc-600 dark:text-zinc-400">
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Personal Portfolio Web">
 								Personal Portfolio Web
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								Astro · Tailwind CSS · TypeScript
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="/" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									Live ↗
-								</a>
+								<a href="/" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">Live ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="KongsiStok">
 								KongsiStok
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								React · Supabase · Gemini AI · Serverless · AI Studio
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/KongsiStok" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/KongsiStok" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="My Personal Notes">
 								My Personal Notes
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								React · Tailwind CSS · JavaScript
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/My-Personal-Notes" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/My-Personal-Notes" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="My Landing Page">
 								My Landing Page
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								HTML · CSS 
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/My-Landing-Page" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/My-Landing-Page" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Todo Apps">
 								Todo Apps
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								JavaScript · CSS · HTML
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/Todo-Apps" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/Todo-Apps" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Bookshelf App">
 								Bookshelf App
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								JavaScript · CSS · HTML
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/Bookshelf-App" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/Bookshelf-App" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Contact Apps">
 								Contact Apps
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								JavaScript · CSS · HTML
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/Contact-Apps" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/Contact-Apps" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Grosir Cabe">
 								Grosir Cabe
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								React · Tailwind CSS · TypeScript · Gemini AI · Firebase · Grok
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/grosir-Cabe" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/grosir-Cabe" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Web Ramadhan 2026">
 								Web Ramadhan 2026
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								JavaScript · CSS · HTML
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/Web-Ramadan" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/Web-Ramadan" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="My Todo List">
 								My Todo List
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								React · Tailwind CSS · TypeScript
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/Freepass-FE-2026/tree/main" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/Freepass-FE-2026/tree/main" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2025</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2025">2025</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Web Pertama">
 								Web Pertama
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-xs font-mono text-zinc-500">
 								HTML · CSS
 							</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<a href="https://github.com/davidkhasbiya/tutorial-web-1-da" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">
-									GitHub ↗
-								</a>
+								<a href="https://github.com/davidkhasbiya/tutorial-web-1-da" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-0.5">GitHub ↗</a>
 							</td>
 						</tr>
 					</tbody>
@@ -187,51 +176,48 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<!-- SECTION 2: KOMPETISI & PRESTASI -->
-		<section>
-			<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase mb-4">Kompetisi & Prestasi</h2>
+		<section class="table-section">
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+				<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Kompetisi & Prestasi</h2>
+				<input 
+					type="text" 
+					placeholder="Cari kompetisi..." 
+					class="search-input text-xs px-3 py-1.5 w-full sm:w-64 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-transparent text-zinc-800 dark:text-zinc-200 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+				/>
+			</div>
 			<div class="overflow-x-auto w-full">
 				<table class="w-full text-left border-collapse text-sm">
 					<thead>
-						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs uppercase font-semibold">
-							<th class="py-3 pr-4 w-16">Tahun</th>
-							<th class="py-3 px-4 w-1/3">Kompetisi</th>
+						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs uppercase font-semibold select-none">
+							<th class="sort-header py-3 pr-4 w-16 cursor-pointer hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" data-sort="number">
+								Tahun <span class="sort-icon inline-block ml-0.5 text-[10px]">▼</span>
+							</th>
+							<th class="sort-header py-3 px-4 w-1/3 cursor-pointer hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" data-sort="string">
+								Kompetisi <span class="sort-icon inline-block ml-0.5 text-[10px]"></span>
+							</th>
 							<th class="py-3 px-4 hidden sm:table-cell">Penyelenggara</th>
 							<th class="py-3 pl-4 text-right w-24">Sertifikat</th>
 						</tr>
 					</thead>
 					<tbody class="divide-y divide-zinc-100 dark:divide-zinc-900 text-zinc-600 dark:text-zinc-400">
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2025</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2025">2025</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="UI/UX Competition IT FAIR XIV">
 								UI/UX Competition IT FAIR XIV
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">HIMATIF UIN Sunan Gunung Djati</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/Ahmad David Khasbiya.pdf" 
-									data-title="UI/UX Competition IT FAIR XIV"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/Ahmad David Khasbiya.pdf" data-title="UI/UX Competition IT FAIR XIV" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2025</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2025">2025</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Hackathon Imphnen x Kolosal.ai">
 								Hackathon Imphnen x Kolosal.ai
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Imphnen x Kolosal.ai</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/certificate-Existential kritif-Ahmad David Khasbiya.pdf" 
-									data-title="Hackathon Imphnen x Kolosal.ai"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/certificate-Existential kritif-Ahmad David Khasbiya.pdf" data-title="Hackathon Imphnen x Kolosal.ai" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 					</tbody>
@@ -240,140 +226,130 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<!-- SECTION 3: SERTIFIKASI & PELATIHAN -->
-		<section>
-			<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase mb-4">Sertifikasi & Pelatihan</h2>
+		<section class="table-section">
+			<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+				<h2 class="text-xs font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">Sertifikasi & Pelatihan</h2>
+				<input 
+					type="text" 
+					placeholder="Cari sertifikat..." 
+					class="search-input text-xs px-3 py-1.5 w-full sm:w-64 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-transparent text-zinc-800 dark:text-zinc-200 placeholder-zinc-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+				/>
+			</div>
 			<div class="overflow-x-auto w-full">
 				<table class="w-full text-left border-collapse text-sm">
 					<thead>
-						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs uppercase font-semibold">
-							<th class="py-3 pr-4 w-16">Tahun</th>
-							<th class="py-3 px-4 w-1/3">Nama Sertifikat</th>
+						<tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-500 text-xs uppercase font-semibold select-none">
+							<th class="sort-header py-3 pr-4 w-16 cursor-pointer hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" data-sort="number">
+								Tahun <span class="sort-icon inline-block ml-0.5 text-[10px]">▼</span>
+							</th>
+							<th class="sort-header py-3 px-4 w-1/3 cursor-pointer hover:text-zinc-800 dark:hover:text-zinc-200 transition-colors" data-sort="string">
+								Nama Sertifikat <span class="sort-icon inline-block ml-0.5 text-[10px]"></span>
+							</th>
 							<th class="py-3 px-4 hidden sm:table-cell">Penerbit</th>
 							<th class="py-3 pl-4 text-right w-24">Sertifikat</th>
 						</tr>
 					</thead>
 					<tbody class="divide-y divide-zinc-100 dark:divide-zinc-900 text-zinc-600 dark:text-zinc-400">
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Belajar Strategi Pengembangan Diri">
 								Belajar Strategi Pengembangan Diri
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Dicoding</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/sertifikat_course_697_5741429_140626201700.pdf" 
-									data-title="Belajar Strategi Pengembangan Diri - Dicoding"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/sertifikat_course_697_5741429_140626201700.pdf" data-title="Belajar Strategi Pengembangan Diri - Dicoding" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Belajar Membuat Aplikasi Web dengan React">
 								Belajar Membuat Aplikasi Web dengan React
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Dicoding</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/sertifikat_course_403_5741429_280526170845.pdf" 
-									data-title="Belajar Membuat Aplikasi Web dengan React - Dicoding"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/sertifikat_course_403_5741429_280526170845.pdf" data-title="Belajar Membuat Aplikasi Web dengan React - Dicoding" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Belajar Membuat Front-End Web untuk Pemula">
 								Belajar Membuat Front-End Web untuk Pemula
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Dicoding</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/sertifikat_course_315_5741429_180526195558.pdf" 
-									data-title="Belajar Membuat Front-End Web untuk Pemula - Dicoding"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/sertifikat_course_315_5741429_180526195558.pdf" data-title="Belajar Membuat Front-End Web untuk Pemula - Dicoding" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Belajar Dasar Pemrograman JavaScript">
 								Belajar Dasar Pemrograman JavaScript
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Dicoding</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/sertifikat_course_256_5741429_050526195523.pdf" 
-									data-title="Belajar Dasar Pemrograman JavaScript - Dicoding"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/sertifikat_course_256_5741429_050526195523.pdf" data-title="Belajar Dasar Pemrograman JavaScript - Dicoding" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Sertifikasi Gemini AI">
 								Sertifikasi Gemini AI
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Google</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/AHMAD DAVID KHASBIYA_FILKOM.pdf" 
-									data-title="Sertifikasi Gemini AI - Google"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/AHMAD DAVID KHASBIYA_FILKOM.pdf" data-title="Sertifikasi Gemini AI - Google" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Belajar Dasar Pemrograman Web">
 								Belajar Dasar Pemrograman Web
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Dicoding</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/sertifikat_course_123_5741429_200426111025.pdf" 
-									data-title="Belajar Dasar Pemrograman Web - Dicoding"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/sertifikat_course_123_5741429_200426111025.pdf" data-title="Belajar Dasar Pemrograman Web - Dicoding" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
 						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
-							<td class="py-4 pr-4 font-mono text-xs text-zinc-400">2026</td>
-							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Introduction to Financial Literacy">
 								Introduction to Financial Literacy
 							</td>
 							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Dicoding</td>
 							<td class="py-4 pl-4 text-right whitespace-nowrap">
-								<button 
-									data-open-cert
-									data-src="/certificates/sertifikat_course_905_5741429_040426201250.pdf" 
-									data-title="Introduction to Financial Literacy - Dicoding"
-									class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer"
-								>
-									View PDF ↗
-								</button>
+								<button data-open-cert data-src="/certificates/sertifikat_course_905_5741429_040426201250.pdf" data-title="Introduction to Financial Literacy - Dicoding" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
 							</td>
 						</tr>
-						
-						
+						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2026">2026</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Ramadhan Coding Challenge 2026">
+								Ramadhan Coding Challenge 2026
+							</td>
+							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Alhazen Academy</td>
+							<td class="py-4 pl-4 text-right whitespace-nowrap">
+								<button data-open-cert data-src="/certificates/Sertifikat Participant 14.pdf" data-title="Ramadhan Coding Challenge 2026 - Alhazen Academy" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
+							</td>
+						</tr>
+						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2025">2025</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Sertifikasi Generative AI IDEAAI">
+								Sertifikasi Generative AI IDEAAI
+							</td>
+							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">IDEAAI</td>
+							<td class="py-4 pl-4 text-right whitespace-nowrap">
+								<button data-open-cert data-src="/certificates/255150207111116 AHMAD DAVID KHASBIYA.pdf" data-title="Sertifikasi Generative AI - IDEAAI " class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
+							</td>
+						</tr>
+						<tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-900/20 transition-colors group">
+							<td class="py-4 pr-4 font-mono text-xs text-zinc-400" data-val="2025">2025</td>
+							<td class="py-4 px-4 font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" data-val="Raion Academy 2025">
+								Raion Academy 2025
+							</td>
+							<td class="py-4 px-4 hidden sm:table-cell text-zinc-500">Raion Community</td>
+							<td class="py-4 pl-4 text-right whitespace-nowrap">
+								<button data-open-cert data-src="/certificates/Ahmad David Khasbiya (2).pdf" data-title="Raion Academy 2025 - Raion Community " class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">View PDF ↗</button>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -399,9 +375,9 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 </Layout>
 
-<!-- LOGIKA PEMICU MODAL (Hanya berjalan di halaman projects) -->
 <script>
 	document.addEventListener("astro:page-load", () => {
+		// --- FITUR 1: MODAL PREVIEW PDF ---
 		const modal = document.getElementById("certModal");
 		const modalPdf = document.getElementById("modalPdf") as HTMLIFrameElement;
 		const modalTitle = document.getElementById("modalTitle");
@@ -418,7 +394,6 @@ import Layout from '../layouts/Layout.astro';
 					if (src) {
 						modalPdf.src = src;
 						if (modalTitle && title) modalTitle.textContent = title;
-						
 						modal.classList.remove("hidden");
 						modal.classList.add("flex");
 						document.body.style.overflow = "hidden";
@@ -437,5 +412,72 @@ import Layout from '../layouts/Layout.astro';
 			modal.addEventListener("click", (e) => { if (e.target === modal) closeModalFunc(); });
 			document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModalFunc(); });
 		}
+
+		// --- FITUR 2: INDEPENDENT SEARCH & SORT SYSTEM ---
+		const sections = document.querySelectorAll(".table-section");
+
+		sections.forEach(section => {
+			const searchInput = section.querySelector(".search-input") as HTMLInputElement;
+			const tableBody = section.querySelector("tbody");
+			const headers = section.querySelectorAll(".sort-header");
+			
+			if (!tableBody) return;
+			let rows = Array.from(tableBody.querySelectorAll("tr"));
+
+			// Logika Live Search
+			if (searchInput) {
+				searchInput.addEventListener("input", () => {
+					const query = searchInput.value.toLowerCase().trim();
+					rows.forEach(row => {
+						const text = row.textContent?.toLowerCase() || "";
+						if (text.includes(query)) {
+							row.style.display = "";
+						} else {
+							row.style.display = "none";
+						}
+					});
+				});
+			}
+
+			// Logika Table Sorting (Tahun & Nama)
+			headers.forEach(header => {
+				header.addEventListener("click", () => {
+					const type = header.getAttribute("data-sort");
+					const index = Array.from(header.parentElement?.children || []).indexOf(header);
+					const currentOrder = header.getAttribute("data-order") || "desc"; // Default sorting bawaan data kamu desc
+					const nextOrder = currentOrder === "desc" ? "asc" : "desc";
+					
+					// Reset icon di header lain dalam section yang sama
+					headers.forEach(h => {
+						h.removeAttribute("data-order");
+						const icon = h.querySelector(".sort-icon");
+						if (icon) icon.textContent = "";
+					});
+
+					// Set order baru
+					header.setAttribute("data-order", nextOrder);
+					const icon = header.querySelector(".sort-icon");
+					if (icon) icon.textContent = nextOrder === "asc" ? "▲" : "▼";
+
+					// Proses Sorting Array DOM Rows
+					rows.sort((rowA, rowB) => {
+						const cellA = rowA.children[index] as HTMLElement;
+						const cellB = rowB.children[index] as HTMLElement;
+						
+						const valA = cellA.getAttribute("data-val") || cellA.textContent?.trim() || "";
+						const valB = cellB.getAttribute("data-val") || cellB.textContent?.trim() || "";
+
+						if (type === "number") {
+							return nextOrder === "asc" ? Number(valA) - Number(valB) : Number(valB) - Number(valA);
+						} else {
+							return nextOrder === "asc" ? valA.localeCompare(valB) : valB.localeCompare(valA);
+						}
+					});
+
+					// Render ulang susunan baris ke DOM
+					rows.forEach(row => tableBody.appendChild(row));
+				});
+			});
+		});
 	});
 </script>
