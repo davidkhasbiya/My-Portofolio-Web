@@ -5,12 +5,12 @@ import { getCollection } from 'astro:content';
 // Ambil semua data tulisan dari src/content/blog
 const posts = await getCollection('blog');
 
-// Urutkan postingan berdasarkan tanggal rilis terbaru
+// Urutkan postingan berdasarkan tanggal rilis terbaru untuk render awal (SSR)
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout title="Blog — David">
-	<div class="space-y-12 py-4">
+	<div class="space-y-8 py-4">
 		
 		<header>
 			<h1 class="text-3xl font-bold tracking-tight mb-3 text-zinc-900 dark:text-zinc-50">Catatan & Pemikiran</h1>
@@ -19,18 +19,118 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 			</p>
 		</header>
 
-		<section class="divide-y divide-zinc-100 dark:divide-zinc-900 border-t border-b border-zinc-100 dark:border-zinc-900">
+		<div class="flex flex-col sm:flex-row gap-4 justify-between items-center border-b border-zinc-100 dark:border-zinc-900 pb-6">
+			<div class="relative w-full sm:max-w-xs">
+				<input 
+					type="text" 
+					id="search-input" 
+					placeholder="Cari catatan..." 
+					class="w-full px-3 py-1.5 text-sm bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800/80 rounded-md focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 dark:placeholder-zinc-500 transition-colors"
+				/>
+			</div>
+
+			<div class="w-full sm:w-auto flex items-center justify-end gap-2">
+				<label for="sort-select" class="text-xs text-zinc-400 font-medium whitespace-nowrap">Urutkan:</label>
+				<select 
+					id="sort-select" 
+					class="text-sm bg-transparent border border-zinc-200 dark:border-zinc-800 rounded-md px-2 py-1.5 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 text-zinc-700 dark:text-zinc-300 cursor-pointer"
+				>
+					<option value="date-desc" class="bg-white dark:bg-zinc-950">Bulan: Terbaru</option>
+					<option value="date-asc" class="bg-white dark:bg-zinc-950">Bulan: Terlama</option>
+					<option value="title-asc" class="bg-white dark:bg-zinc-950">Judul: A - Z</option>
+					<option value="title-desc" class="bg-white dark:bg-zinc-950">Judul: Z - A</option>
+				</select>
+			</div>
+		</div>
+
+		<section 
+			id="posts-container" 
+			class="divide-y divide-zinc-100 dark:divide-zinc-900 border-t border-b border-zinc-100 dark:border-zinc-900"
+		>
 			{sortedPosts.map((post) => (
-                <a href={`/blog/${post.id}`} class="flex flex-col sm:flex-row sm:items-center justify-between py-4 group hover:px-2 transition-all duration-200">
-                    <span class="text-sm font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                        {post.data.title}
-                    </span>
-                    <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 shrink-0 mt-1 sm:mt-0">
-                        {post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })}
-                    </span>
-                </a>
-            ))}
+				<a 
+					href={`/blog/${post.id}`} 
+					class="blog-item flex flex-col sm:flex-row sm:items-center justify-between py-4 group hover:px-2 transition-all duration-200"
+					data-title={post.data.title.toLowerCase()}
+					data-date={post.data.pubDate.valueOf()}
+				>
+					<span class="text-sm font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+						{post.data.title}
+					</span>
+					<span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 shrink-0 mt-1 sm:mt-0">
+						{post.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })}
+					</span>
+				</a>
+			))}
 		</section>
+
+		<p id="empty-message" class="hidden text-center text-sm text-zinc-400 dark:text-zinc-500 py-8">
+			Tidak ada catatan yang cocok dengan pencarianmu.
+		</p>
 
 	</div>
 </Layout>
+
+<script>
+	function initBlogControls() {
+		const searchInput = document.getElementById('search-input') as HTMLInputElement;
+		const sortSelect = document.getElementById('sort-select') as HTMLSelectElement;
+		const postsContainer = document.getElementById('posts-container');
+		const emptyMessage = document.getElementById('empty-message');
+		
+		if (!searchInput || !sortSelect || !postsContainer || !emptyMessage) return;
+
+		// Ubah HTMLCollection menjadi Array asli agar bisa dimanipulasi (sort & filter)
+		const items = Array.from(postsContainer.getElementsByClassName('blog-item')) as HTMLElement[];
+
+		function updateList() {
+			const query = searchInput.value.toLowerCase().trim();
+			const sortValue = sortSelect.value;
+			let visibleCount = 0;
+
+			// 1. Filter Berdasarkan Pencarian Judul
+			items.forEach(item => {
+				const title = item.getAttribute('data-title') || '';
+				if (title.includes(query)) {
+					item.classList.remove('hidden');
+					visibleCount++;
+				} else {
+					item.classList.add('hidden');
+				}
+			});
+
+			// Tampilkan pesan jika tidak ada hasil pencarian
+			if (visibleCount === 0) {
+				emptyMessage.classList.remove('hidden');
+			} else {
+				emptyMessage.classList.add('hidden');
+			}
+
+			// 2. Pengurutan Data (Sorting)
+			const sortedItems = [...items].sort((a, b) => {
+				if (sortValue.startsWith('date')) {
+					const dateA = parseInt(a.getAttribute('data-date') || '0');
+					const dateB = parseInt(b.getAttribute('data-date') || '0');
+					return sortValue === 'date-desc' ? dateB - dateA : dateA - dateB;
+				} else {
+					const titleA = a.getAttribute('data-title') || '';
+					const titleB = b.getAttribute('data-title') || '';
+					return sortValue === 'title-asc' 
+						? titleA.localeCompare(titleB) 
+						: titleB.localeCompare(titleA);
+				}
+			});
+
+			// 3. Masukkan kembali ke DOM berdasarkan urutan baru
+			sortedItems.forEach(item => postsContainer.appendChild(item));
+		}
+
+		// Event Listener
+		searchInput.addEventListener('input', updateList);
+		sortSelect.addEventListener('change', updateList);
+	}
+
+	// Berjalan saat load awal atau setelah transisi halaman Astro View Transitions
+	initBlogControls();
+	document.addEventListener('astro:after-swap', initBlogControls);
+</script>
