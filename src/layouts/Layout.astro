@@ -112,131 +112,130 @@ const { title } = Astro.props;
 		</script>
 
 		<!-- ========================================== -->
-<!-- EASTER EGG: MINI CLI TERMINAL SIMULATOR   -->
-<!-- ========================================== -->
-<div id="cli-terminal" class="fixed bottom-0 inset-x-0 h-64 bg-zinc-950 border-t border-zinc-800 font-mono text-xs text-zinc-300 p-4 z-[10000] hidden flex-col shadow-2xl transition-all duration-300">
-	<!-- Terminal Header -->
-	<div class="flex justify-between items-center border-b border-zinc-800 pb-2 mb-2 text-zinc-500 select-none">
-		<div class="flex items-center gap-2">
-			<span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-			<span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-			<span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-			<span class="ml-2 text-[10px] font-mono tracking-wider text-zinc-400">david@ub-terminal:~</span>
+		<!-- EASTER EGG: MINI CLI TERMINAL SIMULATOR   -->
+		<!-- ========================================== -->
+		<div id="cli-terminal" class="fixed bottom-0 inset-x-0 h-64 bg-zinc-950 border-t border-zinc-800 font-mono text-xs text-zinc-300 p-4 z-[10000] hidden flex-col shadow-2xl transition-all duration-300">
+			<!-- Terminal Header -->
+			<div class="flex justify-between items-center border-b border-zinc-800 pb-2 mb-2 text-zinc-500 select-none">
+				<div class="flex items-center gap-2">
+					<span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+					<span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+					<span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+					<span class="ml-2 text-[10px] font-mono tracking-wider text-zinc-400">david@ub-terminal:~</span>
+				</div>
+				<span class="text-[10px]">Tekan ` (backtick) untuk keluar</span>
+			</div>
+
+			<!-- Terminal Output Logs -->
+			<div id="cli-output" class="flex-1 overflow-y-auto space-y-1.5 pr-2 scrolling-touch scrollbar-none">
+				<p class="text-indigo-400">Selamat datang di Terminal Rahasia David. Ketik <span class="text-zinc-100 underline">help</span> untuk melihat daftar perintah.</p>
+			</div>
+
+			<!-- Terminal Input Line -->
+			<div class="flex items-center gap-2 pt-2 border-t border-zinc-900 mt-2">
+				<span class="text-green-400 shrink-0">david@ub-laptop:~$</span>
+				<input type="text" id="cli-input" class="flex-1 bg-transparent border-none outline-none focus:ring-0 p-0 text-zinc-100 font-mono text-xs" autofocus autocomplete="off" spellcheck="false" />
+			</div>
 		</div>
-		<span class="text-[10px]">Tekan ` (backtick) untuk keluar</span>
-	</div>
 
-	<!-- Terminal Output Logs -->
-	<div id="cli-output" class="flex-1 overflow-y-auto space-y-1.5 pr-2 scrolling-touch scrollbar-none">
-		<p class="text-indigo-400">Selamat datang di Terminal Rahasia David. Ketik <span class="text-zinc-100 underline">help</span> untuk melihat daftar perintah.</p>
-	</div>
+		<script>
+			document.addEventListener("astro:page-load", () => {
+				const terminal = document.getElementById("cli-terminal");
+				const input = document.getElementById("cli-input") as HTMLInputElement;
+				const output = document.getElementById("cli-output");
 
-	<!-- Terminal Input Line -->
-	<div class="flex items-center gap-2 pt-2 border-t border-zinc-900 mt-2">
-		<span class="text-green-400 shrink-0">david@ub-laptop:~$</span>
-		<input type="text" id="cli-input" class="flex-1 bg-transparent border-none outline-none focus:ring-0 p-0 text-zinc-100 font-mono text-xs" autofocus autocomplete="off" spellcheck="false" />
-	</div>
-</div>
+				if (!terminal || !input || !output) return;
 
-<script>
-	document.addEventListener("astro:page-load", () => {
-		const terminal = document.getElementById("cli-terminal");
-		const input = document.getElementById("cli-input") as HTMLInputElement;
-		const output = document.getElementById("cli-output");
+				// Daftar perintah yang didukung
+				const commands: Record<string, string | (() => string)> = {
+					help: "Perintah yang tersedia: <br>• <span class='text-indigo-400'>about</span> - Info singkat tentang David<br>• <span class='text-indigo-400'>neofetch</span> - Tampilkan spesifikasi sistem rahasia<br>• <span class='text-indigo-400'>skills</span> - Daftar alat tempur / tech stack<br>• <span class='text-indigo-400'>socials</span> - Tautan media sosial aktif<br>• <span class='text-indigo-400'>theme</span> - Ganti tema visual website<br>• <span class='text-indigo-400'>clear</span> - Bersihkan layar terminal<br>• <span class='text-indigo-400'>exit</span> - Tutup terminal",
+					
+					about: "Ahmad David Khasbiya: Mahasiswa Ilmu Komputer Universitas Brawijaya. Seorang Software Development Enthusiast yang benci bloatware dan suka ngulik kustomisasi kernel/OS.",
+					
+					neofetch: () => `
+				<span class="text-indigo-400 font-bold">david@ub-laptop</span><br>
+				----------------<br>
+				<span class="text-indigo-400">OS</span>: Windows 11 Pro / Linux Mint Core<br>
+				<span class="text-indigo-400">Host</span>: Asus Vivobook 14 Pro OLED<br>
+				<span class="text-indigo-400">Kernel</span>: 5.15.0-custom-david-ub<br>
+				<span class="text-indigo-400">Shell</span>: zsh 5.9 (Hyprland styled)<br>
+				<span class="text-indigo-400">CPU</span>: AMD Ryzen 7 5800H @ 4.400GHz<br>
+				<span class="text-indigo-400">GPU</span>: NVIDIA GeForce RTX 3050 Mobile<br>
+				<span class="text-indigo-400">Memory</span>: 8GB RAM / 512GB NVMe SSD<br>
+				<span class="text-indigo-400">Uptime</span>: Tergantung asupan kopi 
+					`.trim(),
 
-		if (!terminal || !input || !output) return;
+					skills: " <span class='text-indigo-400 font-bold'>Alat Tempur:</span><br>• Core: Java (OOP), JavaScript, TypeScript, SQL<br>• Frontend: Astro, React, Tailwind CSS<br>• Sys/DevOps: Docker Container, Git, Linux Environment",
 
-		// Daftar perintah yang didukung
-		const commands: Record<string, string | (() => string)> = {
-			help: "Perintah yang tersedia: <br>• <span class='text-indigo-400'>about</span> - Info singkat tentang David<br>• <span class='text-indigo-400'>neofetch</span> - Tampilkan spesifikasi sistem rahasia<br>• <span class='text-indigo-400'>skills</span> - Daftar alat tempur / tech stack<br>• <span class='text-indigo-400'>socials</span> - Tautan media sosial aktif<br>• <span class='text-indigo-400'>theme</span> - Ganti tema visual website<br>• <span class='text-indigo-400'>clear</span> - Bersihkan layar terminal<br>• <span class='text-indigo-400'>exit</span> - Tutup terminal",
-			
-			about: "Ahmad David Khasbiya: Mahasiswa Ilmu Komputer Universitas Brawijaya. Seorang Software Development Enthusiast yang benci bloatware dan suka ngulik kustomisasi kernel/OS.",
-			
-			neofetch: () => `
-		<span class="text-indigo-400 font-bold">david@ub-laptop</span><br>
-		----------------<br>
-		<span class="text-indigo-400">OS</span>: Windows 11 Pro / Linux Mint Core<br>
-		<span class="text-indigo-400">Host</span>: Asus Vivobook 14 Pro OLED<br>
-		<span class="text-indigo-400">Kernel</span>: 5.15.0-custom-david-ub<br>
-		<span class="text-indigo-400">Shell</span>: zsh 5.9 (Hyprland styled)<br>
-		<span class="text-indigo-400">CPU</span>: AMD Ryzen 7 5800H @ 4.400GHz<br>
-		<span class="text-indigo-400">GPU</span>: NVIDIA GeForce RTX 3050 Mobile<br>
-		<span class="text-indigo-400">Memory</span>: 8GB RAM / 512GB NVMe SSD<br>
-		<span class="text-indigo-400">Uptime</span>: Tergantung asupan kopi ☕
-			`.trim(),
+					socials: "<span class='text-indigo-400 font-bold'>Hubungi Saya:</span><br>• GitHub: <a href='https://github.com/davidkhasbiya' target='_blank' class='text-indigo-400 underline hover:text-indigo-300'>github.com/davidkhasbiya</a><br>• LinkedIn: <a href='#' class='text-indigo-400 underline hover:text-indigo-300'>Ahmad David Khasbiya</a>",
 
-			skills: "🛠️ <span class='text-indigo-400 font-bold'>Alat Tempur:</span><br>• Core: Java (OOP), JavaScript, TypeScript, SQL<br>• Frontend: Astro, React, Tailwind CSS<br>• Sys/DevOps: Docker Container, Git, Linux Environment",
+					theme: () => {
+						// Logika mendeteksi dan mengubah tema dark/light bawaan portofoliomu
+						const isDark = document.documentElement.classList.contains('dark');
+						if (isDark) {
+							document.documentElement.classList.remove('dark');
+							localStorage.setItem('theme', 'light');
+							return " <span class='text-yellow-400'>Sistem dialihkan ke Light Mode. Silau men!</span>";
+						} else {
+							document.documentElement.classList.add('dark');
+							localStorage.setItem('theme', 'dark');
+							return " <span class='text-indigo-400'>Sistem dialihkan ke Dark Mode. Nyaman di mata.</span>";
+						}
+					}
+				};
 
-			socials: "🌐 <span class='text-indigo-400 font-bold'>Hubungi Saya:</span><br>• GitHub: <a href='https://github.com/davidkhasbiya' target='_blank' class='text-indigo-400 underline hover:text-indigo-300'>github.com/davidkhasbiya</a><br>• LinkedIn: <a href='#' class='text-indigo-400 underline hover:text-indigo-300'>Ahmad David Khasbiya</a>",
+				// Toggle terminal pakai tombol backtick (`)
+				document.addEventListener("keydown", (e) => {
+					if (e.key === "`") {
+						e.preventDefault();
+						if (terminal.classList.contains("hidden")) {
+							terminal.classList.remove("hidden");
+							terminal.classList.add("flex");
+							setTimeout(() => input.focus(), 50);
+						} else {
+							terminal.classList.add("hidden");
+							terminal.classList.remove("flex");
+						}
+					}
+				});
 
-			theme: () => {
-				// Logika mendeteksi dan mengubah tema dark/light bawaan portofoliomu
-				const isDark = document.documentElement.classList.contains('dark');
-				if (isDark) {
-					document.documentElement.classList.remove('dark');
-					localStorage.setItem('theme', 'light');
-					return "☀️ <span class='text-yellow-400'>Sistem dialihkan ke Light Mode. Silau men!</span>";
-				} else {
-					document.documentElement.classList.add('dark');
-					localStorage.setItem('theme', 'dark');
-					return "🌙 <span class='text-indigo-400'>Sistem dialihkan ke Dark Mode. Nyaman di mata.</span>";
-				}
-			}
-		};
+				// Proses input command saat Enter ditekan
+				input.addEventListener("keydown", (e) => {
+					if (e.key === "Enter") {
+						const fullCmd = input.value.trim();
+						const cmd = fullCmd.toLowerCase();
+						input.value = "";
 
-		// Toggle terminal pakai tombol backtick (`)
-		document.addEventListener("keydown", (e) => {
-			if (e.key === "`") {
-				e.preventDefault();
-				if (terminal.classList.contains("hidden")) {
-					terminal.classList.remove("hidden");
-					terminal.classList.add("flex");
-					setTimeout(() => input.focus(), 50);
-				} else {
-					terminal.classList.add("hidden");
-					terminal.classList.remove("flex");
-				}
-			}
-		});
+						if (!cmd) return;
 
-		// Proses input command saat Enter ditekan
-		input.addEventListener("keydown", (e) => {
-			if (e.key === "Enter") {
-				const fullCmd = input.value.trim();
-				const cmd = fullCmd.toLowerCase();
-				input.value = "";
+						// Cetak ulang perintah yang baru diketik pengguna
+						output.innerHTML += `<div><span class="text-green-400">david@ub-laptop:~$</span> ${fullCmd}</div>`;
 
-				if (!cmd) return;
+						// Logika eksekusi perintah
+						if (cmd === "clear") {
+							output.innerHTML = "";
+						} else if (cmd === "exit") {
+							terminal.classList.add("hidden");
+							terminal.classList.remove("flex");
+						} else if (cmd === "sudo rm -rf /") {
+							output.innerHTML += `<div class="text-red-500 font-bold animate-pulse"> CRITICAL ERROR: Terdeteksi upaya pembersihan root direktori! Mau ngusilin server UB ya? Akses ditolak! </div>`;
+						} else if (cmd === "sudo apt update") {
+							output.innerHTML += `<div class="text-green-400">Hit:1 http://repository.brawijaya.ac.id/ubuntu noble InRelease<br>Reading package lists... Done.<br>Status: Portofolio David sudah menggunakan versi paling optimal dan bebas bloatware! </div>`;
+						} else if (cmd.startsWith("sudo")) {
+							output.innerHTML += `<div class="text-red-400"> David is not in the sudoers file. This incident will be reported.</div>`;
+						} else if (commands[cmd]) {
+							const res = commands[cmd];
+							output.innerHTML += `<div>${typeof res === "function" ? res() : res}</div>`;
+						} else {
+							output.innerHTML += `<div class="text-zinc-500">Bash: command not found: ${fullCmd}. Ketik 'help' untuk bantuan.</div>`;
+						}
 
-				// Cetak ulang perintah yang baru diketik pengguna
-				output.innerHTML += `<div><span class="text-green-400">david@ub-laptop:~$</span> ${fullCmd}</div>`;
-
-				// Logika eksekusi perintah
-				if (cmd === "clear") {
-					output.innerHTML = "";
-				} else if (cmd === "exit") {
-					terminal.classList.add("hidden");
-					terminal.classList.remove("flex");
-				} else if (cmd === "sudo rm -rf /") {
-					output.innerHTML += `<div class="text-red-500 font-bold animate-pulse">🚨 CRITICAL ERROR: Terdeteksi upaya pembersihan root direktori! Mau ngusilin server UB ya? Akses ditolak! 😂</div>`;
-				} else if (cmd === "sudo apt update") {
-					output.innerHTML += `<div class="text-green-400">Hit:1 http://repository.brawijaya.ac.id/ubuntu noble InRelease<br>Reading package lists... Done.<br>Status: Portofolio David sudah menggunakan versi paling optimal dan bebas bloatware! ✨</div>`;
-				} else if (cmd.startsWith("sudo")) {
-					output.innerHTML += `<div class="text-red-400">⚠️ David is not in the sudoers file. This incident will be reported.</div>`;
-				} else if (commands[cmd]) {
-					const res = commands[cmd];
-					output.innerHTML += `<div>${typeof res === "function" ? res() : res}</div>`;
-				} else {
-					output.innerHTML += `<div class="text-zinc-500">Bash: command not found: ${fullCmd}. Ketik 'help' untuk bantuan.</div>`;
-				}
-
-				// Auto scroll ke bawah
-				output.scrollTop = output.scrollHeight;
-			}
-		});
-	});
-</script>
-
+						// Auto scroll ke bawah
+						output.scrollTop = output.scrollHeight;
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
 
