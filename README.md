@@ -2,7 +2,9 @@
 
 Web portofolio personal yang dirancang dengan pendekatan minimalis, kedap bising visual, cepat, dan sepenuhnya bebas dari *bloatware*. Dibangun menggunakan **Astro**, **Tailwind CSS**, dan **TypeScript**.
 
-> Live Preview: (https://github.com/davidkhasbiya) *(Sesuaikan dengan link deployment-mu nanti)*
+<img width="1418" height="768" alt="image" src="https://github.com/user-attachments/assets/636315fa-5dda-45ec-84da-0ff7f8735031" />
+
+> Live Preview: https://david-portofolio-iota.vercel.app/  
 
 ## Fitur Unggulan
 
