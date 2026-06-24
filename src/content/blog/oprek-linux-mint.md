@@ -1,7 +1,7 @@
 ---
 title: "Oprek Linux Mint di Laptop Toshiba: Langkah Awal Keluar dari Zona Nyaman Windows"
 description: "Cerita di balik layar migrasi ke Linux Mint gara-gara mata kuliah Sistem Operasi, menjinakkan terminal, dan menghidupkan kembali laptop lama."
-pubDate: "2026-04-15"
+pubDate: "2026-03-21"
 ---
 
 Bagi saya yang sejak kecil dibesarkan di lingkungan ekosistem Windows, melihat layar hitam berisi baris teks (terminal) dulunya adalah hal yang mengintimidasi. Namun, semuanya berubah total ketika saya menginjak semester 2 di jurusan Ilmu Komputer dan mengambil mata kuliah **Sistem Operasi**.
