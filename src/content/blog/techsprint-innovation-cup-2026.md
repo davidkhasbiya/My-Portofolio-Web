@@ -1,55 +1,52 @@
 ---
-title: "TechSprint Innovation Cup 2026: Menguji Batas Kemampuan UI/UX di Skala Besar"
-description: "Kilas balik perjuangan di semester 2 menghadapi 150 tim nasional dalam ajang inovasi digital oleh Codelab IDN."
+title: "SIGAP — Solusi Layanan Darurat Terintegrasi Berbasis AI & Real-Time Tracking"
+description: "Studi kasus UI/UX aplikasi panic button pintar pemenang Top 30% pada ajang TechSprint Innovation Cup 2026."
 pubDate: 2026-04-20
-tags: ["UI/UX", "Case Study", "Competition", "Innovation"]
-thumbnail: "/images/projects/techsprint-2026.jpg"
+tags: ["UI/UX", "Figma", "Public Service", "AI", "Competition"]
+thumbnail: "/images/projects/sigap-app.jpg"
 ---
 
 ## Ringkasan Kompetisi
 
+*   **Nama Produk:** SIGAP (Siap, Tanggap, Amankan)
 *   **Nama Event:** TechSprint Innovation Cup 2026
 *   **Penyelenggara:** Codelab IDN
-*   **Waktu Pelaksanaan:** April 2026
-*   **Peran Saya:** UI/UX Designer
-*   **Pencapaian:** Peringkat 45 dari 150+ Tim Nasional
+*   **Tema Utama:** Smart Digital Solution for Real World Problems
+*   **Subtema:** Public Service & Social Impact
+*   **Pencapaian:** Peringkat 45 dari 150 Tim Nasional
 
 ---
 
-## Naik Level di Semester 2
+## Latar Belakang & Masalah Riil
 
-Setelah mendapatkan suntikan motivasi dari kompetisi pertama di semester 1, rasa penasaran saya terhadap dunia kompetisi justru makin menjadi-jadi. Memasuki Semester 2 pada April 2026, saya memutuskan untuk kembali menantang diri ke skala yang jauh lebih masif: **TechSprint Innovation Cup 2026**.
+Pada sistem penanganan darurat konvensional, masyarakat sering menghadapi kendala birokrasi, nomor kontak yang terpisah-pisah, serta ketidakpastian posisi petugas penolong. Di sisi lain, *golden hour* (waktu krusial penanganan korban) sering terbuang sia-sia karena orang di sekitar tidak tahu cara memberikan pertolongan pertama yang benar.
 
-Kompetisi kali ini terasa berbeda karena skalanya yang sangat ketat, mempertemukan sekitar 150 tim bertalenta dari berbagai instansi dan universitas di Indonesia. Bermodal evaluasi dari pengalaman lomba sebelumnya, saya kembali menyusun tim dan bersiap mengeksekusi ide baru.
-
----
-
-## Konsep Inovasi & Proses Eksplorasi
-
-Fokus utama kami dalam kompetisi ini adalah merancang sebuah solusi digital yang inovatif, fungsional, dan memiliki nilai komersial yang matang. Kami membagi proses pengerjaan ke dalam beberapa fase penting:
-
-1.  **Deep Research & Problem Validations:** Mencari celah masalah yang belum terselesaikan dengan baik di pasar, lalu memvalidasinya dengan data.
-2.  **Information Architecture (IA) & User Flow:** Menyusun alur aplikasi yang intuitif agar pengguna tidak kebingungan saat menavigasi produk.
-3.  **High-Fidelity UI Design & Prototyping:** Mengembangkan visual design yang modern, bersih, serta interaksi *prototype* yang dinamis untuk mensimulasikan pengalaman aplikasi nyata.
-
-Di tengah padatnya jadwal perkuliahan semester 2, kami harus memutar otak dan disiplin membagi waktu agar proyek ini selesai tepat waktu dengan kualitas terbaik yang bisa kami berikan.
+Memasuki Semester 2 di bulan April 2026, tim kami merancang **SIGAP** sebagai jawaban atas permasalahan sosial tersebut melalui pendekatan desain produk digital yang taktis.
 
 ---
 
-## Hasil Akhir & Refleksi Proses
+## Arsitektur & Fitur Utama SIGAP
 
-Kompetisi yang sangat ketat ini berakhir dengan tim kami menduduki **posisi peringkat 45 dari total 150+ tim**. 
+Kami mengembangkan *high-fidelity prototype* SIGAP menggunakan Figma dengan fokus pada efisiensi interaksi saat pengguna berada di situasi kritis:
 
-Meskipun langkah kami belum sampai ke panggung juara, pencapaian ini adalah sebuah lompatan pengalaman yang luar biasa berharga bagi saya pribadi. Masuk dalam jajaran top 30% di kompetisi berskala besar seperti ini memberikan sudut pandang baru tentang standar kualitas industri yang sesungguhnya.
-
----
-
-## Pelajaran Berharga (Takeaways)
-
-*   **Evaluasi adalah Kunci:** Dari peringkat 18/50 di lomba pertama ke peringkat 45/150 di lomba kedua, angka-angka ini mengajarkan saya untuk selalu mengevaluasi setiap detail hasil karya.
-*   **Perluas Sudut Pandang:** Melihat karya dari ratusan tim lain membuat mata saya terbuka mengenai tren desain terkini dan fungsionalitas teknologi yang lebih luas.
-*   **Coba Dulu, Hasil Belakangan:** Prinsip utama yang saya pegang teguh adalah jangan pernah takut sebelum bertanding. Kalah atau menang itu urusan nanti; ilmu, relasi, dan portofolio nyata yang melekat di diri kita adalah kemenangan yang sesungguhnya.
+1.  **SOS Panic Button:** Akses satu ketukan yang langsung mendeteksi lokasi pengguna dan menghubungkannya ke Polisi, Damkar, BASARNAS, atau Medis sesuai kebutuhan.
+2.  **AI Pertolongan Pertama:** Modul asisten AI interaktif (Chat AI) yang menyajikan panduan penanganan medis atau evakuasi darurat langkah-demi-langkah berdasarkan kategori kejadian secara instan.
+3.  **Real-Time Responders Tracking:** Antarmuka peta interaktif untuk melacak posisi armada penolong menuju lokasi koordinat korban.
+4.  **Sistem Autentikasi Cepat:** Integrasi Scan KTP, Touch ID, dan Fingerprint untuk memvalidasi identitas pengguna guna menekan angka laporan palsu (*fake reports*).
 
 ---
 
-*Terima kasih sudah mengikuti perjalanan perkembangan saya sebagai software builder. Terus belajar, terus menguji batas kemampuan!* 
+## Pendekatan UI/UX Design
+
+*   **Color Psychology:** Menggunakan warna merah terang sebagai warna dominan (*primary color*) untuk merepresentasikan urgensi, aksi cepat, dan perhatian tinggi.
+*   **Accessibility:** Memastikan teks instruksi pertolongan pertama memiliki tingkat keterbacaan yang tinggi (*high contrast*) dan tombol-tombol navigasi yang berukuran besar agar mudah ditekan dalam kondisi tangan bergetar atau panik.
+
+---
+
+## Hasil Akhir & Refleksi
+
+Kompetisi ini diikuti oleh 150 tim dari seluruh Indonesia. Tim kami berhasil mengamankan posisi **Peringkat 45 dari 150**. Nilai terbesar dari kompetisi ini bukanlah sekadar angka peringkat, melainkan pengalaman berharga dalam menyusun sebuah *product requirements* yang menyeimbangkan antara regulasi layanan publik dan teknologi kecerdasan buatan (AI).
+
+---
+
+*Terima kasih sudah meninjau studi kasus ini. Mari berkolaborasi untuk membangun solusi digital yang berdampak!* 
